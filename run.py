@@ -4,8 +4,6 @@ from time import time
 import csv
 
 app = Flask(__name__)
-app.debug = False
-app.config['SECRET_KEY'] = 'LongAndRandomSecre123AA1232tKey'
 
 
 @app.route('/')
