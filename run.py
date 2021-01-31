@@ -4,6 +4,8 @@ from time import time
 import csv
 
 app = Flask(__name__)
+app.debug = False
+app.config['SECRET_KEY'] = 'LongAndRandomSecre123AA1232tKey'
 
 
 @app.route('/')
@@ -32,7 +34,7 @@ def write_to_css(data):
 @app.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
     """Submit the form from contact and add the information to the mongDB Database"""
-    if request.method == 'POST':
+    if request.method in ['POST', 'GET']:
         data = request.form.to_dict()
         try:
             add_new_contact(data)
