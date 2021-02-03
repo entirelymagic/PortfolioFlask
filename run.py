@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from data.db import add_new_contact
-from time import time
-import csv
+from data.csv_db.write_to_csv import write_to_css
 
 app = Flask(__name__)
 
@@ -19,19 +18,9 @@ def html_page(page_name):
     return render_template(page_name)
 
 
-def write_to_css(data):
-    with open('database.csv', newline='', mode='a') as database:
-        email = data["email"],
-        subject = data["subject"],
-        message = data["message"],
-        date = time()
-        csv_writer = csv.writer(database, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-        csv_writer.writerow([email, subject, message, date])
-
-
 @app.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
-    """Submit the form from contact and add the information to the mongDB Database"""
+    """Submit the form from contact and add the information to the mongoDB Database"""
     if request.method in ['POST', 'GET']:
         data = request.form.to_dict()
         try:

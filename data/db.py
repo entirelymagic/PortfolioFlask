@@ -6,7 +6,7 @@ def add_new_contact(data):
     """Connect to DB and add data from the form."""
     client = pymongo.MongoClient(
         "mongodb+srv://flask_db_user:flask_db_pass@portfolio.bqtz2.mongodb.net/portfolio?retryWrites=true&w=majority",
-        connectTimeoutMS=30000,
+        connectTimeoutMS=3000,
         socketTimeoutMS=None,
         socketKeepAlive=True,
         connect=False,
