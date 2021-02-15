@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, send_from_directory
 from data.db import add_new_contact
 from data.csv_db.write_to_csv import write_to_css
 
@@ -30,6 +30,11 @@ def submit_form():
         return redirect('thankyou.html')
     else:
         return "Something went wrong. Try again!"
+
+
+@app.route("/robots.txt")
+def robots_txt():
+    return render_template("robots.txt")
 
 
 if __name__ == '__main__':
