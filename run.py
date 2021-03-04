@@ -20,7 +20,10 @@ def html_page(page_name):
 
 @app.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
-    """Submit the form from contact and add the information to the mongoDB Database"""
+    """Submit the form from contact and add the information to the mongoDB Database.
+    If connection is close, write to local css file.
+    """
+
     if request.method in ['POST', 'GET']:
         data = request.form.to_dict()
         try:
