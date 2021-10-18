@@ -256,6 +256,7 @@ th {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    background-color: black;
 }
 html {
     font-size: 10px;
